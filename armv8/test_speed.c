@@ -29,6 +29,9 @@ int main()
   uint8_t sk[CRYPTO_SECRETKEYBYTES];
   uint8_t ct[CRYPTO_CIPHERTEXTBYTES];
   uint8_t key[CRYPTO_BYTES];
+  uint8_t kexsenda[KEX_AKE_SENDABYTES];
+  uint8_t kexsendb[KEX_AKE_SENDBBYTES];
+  uint8_t kexkey[KEX_SSBYTES];
   polyvec matrix[KYBER_K];
   poly ap;
   
