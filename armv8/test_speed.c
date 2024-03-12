@@ -459,6 +459,30 @@ int main()
     t[i] = cycles2-cycles1;
   }
   print_results("crypto_kem_dec: ", t, NTESTS);
+
+  for(i=0;i<NTESTS;i++) {
+    cycles1 = cpucycles();
+    kex_ake_initA(kexsenda, key, sk, pk);
+    cycles2 = cpucycles();
+    t[i] = cycles2-cycles1;
+  }
+  print_results("kex_ake_initA: ", t, NTESTS);
+
+  for(i=0;i<NTESTS;i++) {
+    cycles1 = cpucycles();
+    kex_ake_sharedB(kexsendb, kexkey, kexsenda, sk, pk);
+    cycles2 = cpucycles();
+    t[i] = cycles2-cycles1;
+  }
+  print_results("kex_ake_sharedB: ", t, NTESTS);
+
+  for(i=0;i<NTESTS;i++) {
+    cycles1 = cpucycles();
+    kex_ake_sharedA(kexkey, kexsendb, key, sk, sk);
+    cycles2 = cpucycles();
+    t[i] = cycles2-cycles1;
+  }
+  print_results("kex_ake_sharedA: ", t, NTESTS);
   
   return 0;
 }
